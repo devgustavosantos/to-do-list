@@ -1,0 +1,35 @@
+html {
+  font-size: 6.25%;
+}
+
+body,
+input,
+button,
+textarea {
+  color: var(--gray-100);
+  outline: none;
+  font-size: 16rem;
+  font-family: var(--typography);
+  line-height: 140%;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--gray-600);
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+}
