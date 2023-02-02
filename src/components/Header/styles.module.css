@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  gap: 12rem;
+  align-items: center;
+  justify-content: center;
+  padding: 76rem 0;
+  background-color: var(--gray-700);
+}
+
+.header > .logo {
+  width: 22rem;
+  height: 36rem;
+}
+
+.header > .brand {
+  color: var(--blue);
+  font-weight: 900;
+  font-size: 40rem;
+}
+
+.brand > .emphasis {
+  color: var(--purple-dark);
+}
