@@ -37,7 +37,10 @@ export function Task({ content, status }: TaskProps) {
         </button>
       )}
       <p className={contentClassName}>{content}</p>
-      <button title="Excluir tarefa">
+      <button
+        title="Excluir tarefa"
+        className={styles.trash}
+      >
         <Trash />
       </button>
     </div>

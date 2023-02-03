@@ -11,6 +11,7 @@
 }
 
 .summary .emphasis {
+  margin-left: 8rem;
   padding: 2rem 8rem;
   border-radius: 9999px;
   background-color: var(--gray-400);
