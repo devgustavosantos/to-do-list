@@ -4,3 +4,13 @@
   margin: 0 auto;
   padding: 0 10rem;
 }
+
+.main > .tasks-container {
+  padding: 91rem 0 30rem;
+}
+
+@media (max-width: 768px) {
+  .main > .tasks-container {
+    padding: 70rem 0 30rem;
+  }
+}

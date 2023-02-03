@@ -21,3 +21,9 @@
 .brand > .emphasis {
   color: var(--purple-dark);
 }
+
+@media (max-width: 768px) {
+  .header {
+    padding: 60rem 0;
+  }
+}

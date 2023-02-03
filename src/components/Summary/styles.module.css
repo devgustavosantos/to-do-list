@@ -1,0 +1,29 @@
+.summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25rem;
+  font-weight: 700;
+  font-size: 14rem;
+}
+
+.summary > .created {
+  color: var(--blue);
+}
+
+.summary .emphasis {
+  padding: 2rem 8rem;
+  border-radius: 9999px;
+  background-color: var(--gray-400);
+  color: var(--gray-200);
+  font-size: 12rem;
+}
+
+.summary > .complete {
+  color: var(--purple);
+}
+
+@media (max-width: 768px) {
+  .summary {
+    margin-bottom: 20rem;
+  }
+}

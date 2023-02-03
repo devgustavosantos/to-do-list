@@ -33,3 +33,9 @@ button {
 a {
   text-decoration: none;
 }
+
+@media (max-width: 768px) {
+  html {
+    font-size: 5.47%;
+  }
+}

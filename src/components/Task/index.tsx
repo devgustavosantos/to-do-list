@@ -21,12 +21,18 @@ export function Task({ content, status }: TaskProps) {
   return (
     <div className={taskClassName}>
       {status === 'completed' && (
-        <button className={styles['check-circle']}>
+        <button
+          className={styles['check-circle']}
+          title="Desmarcar conclusão"
+        >
           <CheckCircle weight="fill" />
         </button>
       )}
       {status === 'in progress' && (
-        <button className={styles.circle}>
+        <button
+          className={styles.circle}
+          title="Marcar conclusão"
+        >
           <Circle />
         </button>
       )}
