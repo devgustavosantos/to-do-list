@@ -1,11 +1,7 @@
 import { CheckCircle, Circle, Trash } from 'phosphor-react';
 
+import { TaskProps } from '../../types/Task';
 import styles from './styles.module.css';
-
-type TaskProps = {
-  content: string;
-  status: 'completed' | 'in progress';
-};
 
 export function Task({ content, status }: TaskProps) {
   const taskClassName =

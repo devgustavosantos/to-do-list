@@ -3,31 +3,29 @@ import { Input } from '../Input';
 import { Summary } from '../Summary';
 import { Task } from '../Task';
 import styles from './styles.module.css';
+import { useMain } from './useMain';
 
 export function Main() {
-  const tasks: string[] = ['1'];
+  const { addNewTask, tasks } = useMain();
 
   return (
     <main className={styles.main}>
-      <Input />
+      <Input onAddNewTask={addNewTask} />
       <section className={styles['tasks-container']}>
         <Summary
           total={2}
           completed={1}
         />
         {tasks.length === 0 && <Empty />}
-        {tasks.length !== 0 && (
-          <>
+        {tasks.length !== 0 &&
+          tasks.map(task => (
             <Task
-              content="Uma tarefa legal"
-              status="completed"
+              id={task.id}
+              key={task.id}
+              content={task.content}
+              status={task.status}
             />
-            <Task
-              content="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur architecto quod labore nihil atque nesciunt in consequuntur minima, culpa corporis maiores quis, temporibus velit qui tempore sint consequatur eveniet placeat."
-              status="in progress"
-            />
-          </>
-        )}
+          ))}
       </section>
     </main>
   );
