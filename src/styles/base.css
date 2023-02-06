@@ -39,3 +39,9 @@ a {
     font-size: 5.47%;
   }
 }
+
+.swal2-popup {
+  font-size: 16rem !important;
+  font-family: var(--typography);
+  text-align: center;
+}

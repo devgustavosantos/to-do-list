@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { TaskProps } from '../../types/Task';
+import { AlertMessages } from './alertMessages';
 
 type HandleStatusProps = {
   taskToUpdate: TaskProps;
@@ -11,15 +12,21 @@ export function useMain() {
   const [tasks, setTasks] = useState<TaskProps[]>([]);
   const [tasksCompleted, setTasksCompleted] = useState(0);
 
+  const { taskAdded, taskCompleted, onDeleteTask } = AlertMessages();
+
   function addNewTask(task: TaskProps) {
     const tasksUpdated = [task, ...tasks];
 
     setTasks(tasksUpdated);
 
     saveOnMemory(tasksUpdated);
+
+    taskAdded();
   }
 
-  function deleteTask(taskToDeleted: string) {
+  async function deleteTask(taskToDeleted: string) {
+    await onDeleteTask();
+
     const tasksFiltered = tasks.filter(task => task.id !== taskToDeleted);
 
     setTasks(tasksFiltered);
@@ -38,6 +45,8 @@ export function useMain() {
     const tasksUpdated = [...tasksFiltered, taskUpdated];
 
     setTasks(tasksUpdated);
+
+    taskCompleted();
 
     return tasksUpdated;
   }
