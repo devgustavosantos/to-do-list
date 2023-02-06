@@ -35,7 +35,7 @@ ToDo List é uma aplicação que serve para guardar tarefas em uma lista, marcar
 
 - O projeto **está finalizado**, mas poderá ter melhorias no futuro.
 
-- Você pode testar a aplicação [clicando aqui!]()
+- Você pode testar a aplicação [clicando aqui!](https://todo-list-2023.netlify.app/)
 
 - Você também pode clonar o repositório, e executar a aplicação localmente.
 
@@ -43,7 +43,9 @@ ToDo List é uma aplicação que serve para guardar tarefas em uma lista, marcar
 
 ## :memo: Sobre
 
-Este é o um dos projetos do do programa [Ignite da Rocketseat](https://www.rocketseat.com.br/ignite), aonde foi proposto a construção de uma aplicação em Typescript para gerenciar uma lista de tarefas.
+Este é o um dos projetos do programa [Ignite da Rocketseat](https://www.rocketseat.com.br/ignite), aonde foi proposto a construção de uma aplicação em Typescript para gerenciar uma lista de tarefas.
+
+O design do projeto está disponível no [FIGMA](<https://www.figma.com/file/EgU4ubkS5OhlE8sAbROs3K/ToDo-List-(Copy)?node-id=101%3A98&t=3i3J57EXerQsZZXS-0>) e foi criado pela Millena Kupsinskü Martins(@millenakmartins).
 
 </br>
 
@@ -61,7 +63,10 @@ Este é o um dos projetos do do programa [Ignite da Rocketseat](https://www.rock
 
 ## :hammer: Funcionalidades
 
-- [] Mostrar todos pratos;
+- [] Adicionar uma tarefa;
+- [] Concluir uma tarefa;
+- [] Excluir um tarefa;
+- [] Manter as tarefas(e seus status), no localStorage;
 
 </br>
 
