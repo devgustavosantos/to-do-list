@@ -1,5 +1,6 @@
 .task {
-  display: flex;
+  display: grid;
+  grid-template-columns: 18rem 1fr 18rem;
   gap: 12rem;
   align-items: flex-start;
   padding: 16rem;
@@ -53,7 +54,8 @@
 }
 
 .task > .content {
-  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .content.-cut {
