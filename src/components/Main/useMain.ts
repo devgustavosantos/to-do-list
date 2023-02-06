@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { TaskProps } from '../../types/Task';
 
@@ -9,6 +9,7 @@ type HandleStatusProps = {
 
 export function useMain() {
   const [tasks, setTasks] = useState<TaskProps[]>([]);
+  const [tasksCompleted, setTasksCompleted] = useState(0);
 
   function addNewTask(task: TaskProps) {
     setTasks(state => [task, ...state]);
@@ -20,7 +21,7 @@ export function useMain() {
     setTasks(tasksFiltered);
   }
 
-  function handleTaskCompleted({
+  function changeTaskToComplete({
     taskToUpdate,
     tasksFiltered,
   }: HandleStatusProps) {
@@ -31,7 +32,7 @@ export function useMain() {
     setTasks([...tasksFiltered, taskUpdated]);
   }
 
-  function handleTaskInProgress({
+  function changeTaskToInProgress({
     taskToUpdate,
     tasksFiltered,
   }: HandleStatusProps) {
@@ -50,9 +51,21 @@ export function useMain() {
     const tasksFiltered = tasks.filter(task => task.id !== taskId);
 
     chosenTask.status === 'in progress'
-      ? handleTaskCompleted({ taskToUpdate: chosenTask, tasksFiltered })
-      : handleTaskInProgress({ taskToUpdate: chosenTask, tasksFiltered });
+      ? changeTaskToComplete({ taskToUpdate: chosenTask, tasksFiltered })
+      : changeTaskToInProgress({ taskToUpdate: chosenTask, tasksFiltered });
   }
 
-  return { addNewTask, deleteTask, tasks, updateTask };
+  function handleTasksCompleted() {
+    const totalOfTasksCompleted = tasks.filter(
+      task => task.status === 'completed'
+    ).length;
+
+    setTasksCompleted(totalOfTasksCompleted);
+  }
+
+  useEffect(() => {
+    handleTasksCompleted();
+  }, [tasks]);
+
+  return { addNewTask, deleteTask, tasks, tasksCompleted, updateTask };
 }
