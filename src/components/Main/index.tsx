@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 import { useMain } from './useMain';
 
 export function Main() {
-  const { addNewTask, tasks } = useMain();
+  const { addNewTask, tasks, deleteTask } = useMain();
 
   return (
     <main className={styles.main}>
@@ -24,6 +24,7 @@ export function Main() {
               key={task.id}
               content={task.content}
               status={task.status}
+              onDelete={deleteTask}
             />
           ))}
       </section>

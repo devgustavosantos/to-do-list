@@ -1,18 +1,15 @@
 import { CheckCircle, Circle, Trash } from 'phosphor-react';
 
-import { TaskProps } from '../../types/Task';
+import { TaskPropsWithDelete } from '../../types/Task';
 import styles from './styles.module.css';
+import { useTask } from './useTask';
 
-export function Task({ content, status }: TaskProps) {
-  const taskClassName =
-    status === 'in progress'
-      ? styles.task
-      : `${styles.task} ${styles['-without-border']}`;
-
-  const contentClassName =
-    status === 'in progress'
-      ? styles.content
-      : `${styles.content} ${styles['-cut']}`;
+export function Task({ id, content, status, onDelete }: TaskPropsWithDelete) {
+  const { taskClassName, contentClassName, handleDeleteTask } = useTask({
+    id,
+    status,
+    onDelete,
+  });
 
   return (
     <div className={taskClassName}>
@@ -36,6 +33,7 @@ export function Task({ content, status }: TaskProps) {
       <button
         title="Excluir tarefa"
         className={styles.trash}
+        onClick={handleDeleteTask}
       >
         <Trash />
       </button>
