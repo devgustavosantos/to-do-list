@@ -12,13 +12,19 @@ export function useMain() {
   const [tasksCompleted, setTasksCompleted] = useState(0);
 
   function addNewTask(task: TaskProps) {
-    setTasks(state => [task, ...state]);
+    const tasksUpdated = [task, ...tasks];
+
+    setTasks(tasksUpdated);
+
+    saveOnMemory(tasksUpdated);
   }
 
   function deleteTask(taskToDeleted: string) {
     const tasksFiltered = tasks.filter(task => task.id !== taskToDeleted);
 
     setTasks(tasksFiltered);
+
+    saveOnMemory(tasksFiltered);
   }
 
   function changeTaskToComplete({
@@ -29,7 +35,11 @@ export function useMain() {
 
     taskUpdated.status = 'completed';
 
-    setTasks([...tasksFiltered, taskUpdated]);
+    const tasksUpdated = [...tasksFiltered, taskUpdated];
+
+    setTasks(tasksUpdated);
+
+    return tasksUpdated;
   }
 
   function changeTaskToInProgress({
@@ -40,7 +50,11 @@ export function useMain() {
 
     taskUpdated.status = 'in progress';
 
-    setTasks([taskUpdated, ...tasksFiltered]);
+    const tasksUpdated = [taskUpdated, ...tasksFiltered];
+
+    setTasks(tasksUpdated);
+
+    return tasksUpdated;
   }
 
   function updateTask(taskId: string) {
@@ -50,9 +64,12 @@ export function useMain() {
 
     const tasksFiltered = tasks.filter(task => task.id !== taskId);
 
-    chosenTask.status === 'in progress'
-      ? changeTaskToComplete({ taskToUpdate: chosenTask, tasksFiltered })
-      : changeTaskToInProgress({ taskToUpdate: chosenTask, tasksFiltered });
+    const tasksUpdated =
+      chosenTask.status === 'in progress'
+        ? changeTaskToComplete({ taskToUpdate: chosenTask, tasksFiltered })
+        : changeTaskToInProgress({ taskToUpdate: chosenTask, tasksFiltered });
+
+    saveOnMemory(tasksUpdated);
   }
 
   function handleTasksCompleted() {
@@ -63,9 +80,25 @@ export function useMain() {
     setTasksCompleted(totalOfTasksCompleted);
   }
 
+  function saveOnMemory(tasksUpdated: TaskProps[]) {
+    localStorage.setItem('@todo_list:tasks', JSON.stringify(tasksUpdated));
+  }
+
+  function getTasksSaveOnMemory() {
+    const tasksSaveOnMemory = localStorage.getItem('@todo_list:tasks');
+
+    if (tasksSaveOnMemory) {
+      setTasks(JSON.parse(tasksSaveOnMemory));
+    }
+  }
+
   useEffect(() => {
     handleTasksCompleted();
   }, [tasks]);
+
+  useEffect(() => {
+    getTasksSaveOnMemory();
+  }, []);
 
   return { addNewTask, deleteTask, tasks, tasksCompleted, updateTask };
 }
