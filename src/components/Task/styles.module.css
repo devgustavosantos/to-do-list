@@ -1,0 +1,82 @@
+.task {
+  display: grid;
+  grid-template-columns: 18rem 1fr 24rem;
+  gap: 12rem;
+  align-items: flex-start;
+  padding: 16rem;
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+  background-color: var(--gray-500);
+}
+
+.task + .task {
+  margin-top: 12rem;
+}
+
+.task.-without-border {
+  border: 0;
+}
+
+.task > .circle {
+  color: var(--blue);
+  font-size: 18rem;
+}
+
+.circle svg circle {
+  fill: transparent;
+  transition: fill 0.4s;
+}
+
+.circle:hover svg circle {
+  fill: var(--blue-dark);
+}
+
+.task > .check-circle {
+  position: relative;
+  width: 17rem;
+  height: 17rem;
+  border-radius: 50%;
+  background-color: var(--gray-100);
+  color: var(--purple-dark);
+  font-size: 22rem;
+  transition: color 0.4s;
+}
+
+.task > .check-circle:hover {
+  color: var(--purple);
+}
+
+.check-circle > svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-11%, -11%);
+}
+
+.task > .content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content.-cut {
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
+
+.task > .trash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--gray-300);
+  font-size: 20rem;
+  line-height: 0;
+  transition: color 0.4s, background-color 0.4s;
+}
+
+.task > .trash:hover {
+  background-color: var(--gray-400);
+  color: var(--danger);
+}

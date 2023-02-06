@@ -1,0 +1,43 @@
+.input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  gap: 8rem;
+  align-items: center;
+  width: 100%;
+  padding: 0 10rem;
+  transform: translateY(-50%);
+}
+
+.input > .entry {
+  flex-grow: 1;
+  min-width: 100rem;
+  padding: 16rem;
+  border: 1rem solid var(--gray-700);
+  border-radius: 8px;
+  background-color: var(--gray-500);
+}
+
+.input > .entry:focus {
+  border: 1rem solid var(--purple-dark);
+}
+
+.input > .button-add {
+  display: flex;
+  gap: 8rem;
+  align-items: center;
+  padding: 16rem;
+  border-radius: 8px;
+  background-color: var(--blue-dark);
+  transition: background-color 0.4s;
+}
+
+.button-add:disabled {
+  filter: opacity(0.7);
+  cursor: not-allowed;
+}
+
+.button-add:not(:disabled):hover {
+  background-color: var(--blue);
+}
