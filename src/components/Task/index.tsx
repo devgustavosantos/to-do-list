@@ -1,14 +1,26 @@
 import { CheckCircle, Circle, Trash } from 'phosphor-react';
 
-import { TaskPropsWithDelete } from '../../types/Task';
+import { TaskPropsWithFunctions } from '../../types/Task';
 import styles from './styles.module.css';
 import { useTask } from './useTask';
 
-export function Task({ id, content, status, onDelete }: TaskPropsWithDelete) {
-  const { taskClassName, contentClassName, handleDeleteTask } = useTask({
+export function Task({
+  id,
+  content,
+  status,
+  onDelete,
+  onUpdate,
+}: TaskPropsWithFunctions) {
+  const {
+    contentClassName,
+    handleDeleteTask,
+    handleUpdateTask,
+    taskClassName,
+  } = useTask({
     id,
     status,
     onDelete,
+    onUpdate,
   });
 
   return (
@@ -17,6 +29,7 @@ export function Task({ id, content, status, onDelete }: TaskPropsWithDelete) {
         <button
           className={styles['check-circle']}
           title="Desmarcar conclusão"
+          onClick={handleUpdateTask}
         >
           <CheckCircle weight="fill" />
         </button>
@@ -25,6 +38,7 @@ export function Task({ id, content, status, onDelete }: TaskPropsWithDelete) {
         <button
           className={styles.circle}
           title="Marcar conclusão"
+          onClick={handleUpdateTask}
         >
           <Circle />
         </button>

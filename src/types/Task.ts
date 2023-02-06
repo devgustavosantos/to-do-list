@@ -4,6 +4,7 @@ export type TaskProps = {
   status: 'completed' | 'in progress';
 };
 
-export type TaskPropsWithDelete = TaskProps & {
+export type TaskPropsWithFunctions = TaskProps & {
   onDelete: (task: string) => void;
+  onUpdate: (task: string) => void;
 };

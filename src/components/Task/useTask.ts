@@ -1,7 +1,12 @@
-import { TaskPropsWithDelete } from '../../types/Task';
+import { TaskPropsWithFunctions } from '../../types/Task';
 import styles from './styles.module.css';
 
-export function useTask({ id, status, onDelete }: TaskPropsWithDelete) {
+export function useTask({
+  id,
+  status,
+  onDelete,
+  onUpdate,
+}: TaskPropsWithFunctions) {
   const taskClassName =
     status === 'in progress'
       ? styles.task
@@ -16,5 +21,14 @@ export function useTask({ id, status, onDelete }: TaskPropsWithDelete) {
     onDelete(id);
   }
 
-  return { taskClassName, contentClassName, handleDeleteTask };
+  function handleUpdateTask() {
+    onUpdate(id);
+  }
+
+  return {
+    contentClassName,
+    handleDeleteTask,
+    handleUpdateTask,
+    taskClassName,
+  };
 }
