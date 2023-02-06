@@ -1,6 +1,6 @@
 .task {
   display: grid;
-  grid-template-columns: 18rem 1fr 18rem;
+  grid-template-columns: 18rem 1fr 24rem;
   gap: 12rem;
   align-items: flex-start;
   padding: 16rem;
@@ -64,10 +64,14 @@
 }
 
 .task > .trash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 5rem;
   border-radius: 4px;
   background-color: transparent;
   color: var(--gray-300);
+  font-size: 20rem;
   line-height: 0;
   transition: color 0.4s, background-color 0.4s;
 }
