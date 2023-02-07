@@ -1,7 +1,5 @@
 # :spiral_notepad: ToDo List
 
-# :hamburger: food explorer - Frontend
-
 ToDo List é uma aplicação que serve para guardar tarefas em uma lista, marcar as tarefas concluídas e excluir indesatáveis.
 
 <h1 align="center">
@@ -63,10 +61,10 @@ O design do projeto está disponível no [FIGMA](<https://www.figma.com/file/EgU
 
 ## :hammer: Funcionalidades
 
-- [] Adicionar uma tarefa;
-- [] Concluir uma tarefa;
-- [] Excluir um tarefa;
-- [] Manter as tarefas(e seus status), no localStorage;
+- [x] Adicionar uma tarefa;
+- [x] Concluir uma tarefa;
+- [x] Excluir um tarefa;
+- [x] Manter as tarefas(e seus status), no localStorage;
 
 </br>
 
@@ -75,25 +73,25 @@ O design do projeto está disponível no [FIGMA](<https://www.figma.com/file/EgU
 - Comece clonando o projeto:
 
 ```bash
-  $ git clone https://github.com/devgustavosantos/to-do-list.git
+  $git clone https://github.com/devgustavosantos/to-do-list.git
 ```
 
 - Entre no diretório:
 
 ```bash
-  $ cd to-do-list/
+  $cd to-do-list/
 ```
 
 - Instale as dependências:
 
 ```bash
-  $ npm install
+  $npm install
 ```
 
 - Inicie um servidor local:
 
 ```bash
-  $ npm run dev
+  $npm run dev
 ```
 
 - Se tudo der certo, você receberá uma mensagem parecida com essa:
